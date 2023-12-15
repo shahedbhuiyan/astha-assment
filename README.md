@@ -36,3 +36,4 @@
    ```bash
    https://hub.docker.com/repository/docker/shahedbhuiyan/astha-assesment-repo/general
    ```
+8. Please find the postman collection from the postman-collection directory
