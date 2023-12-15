@@ -3,9 +3,6 @@ server:
 
 spring:
   datasource:
-    #url: jdbc:postgresql://172.16.229.217:5432/wallet_db?currentSchema=booking_svc
-    #username: bswallet
-    #password: wallet@123
     url: jdbc:postgresql://db:5432/booking_db?currentSchema=public
     username: dev@test
     password: password@test
