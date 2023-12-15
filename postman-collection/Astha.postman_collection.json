@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "33b1bc64-e81b-445d-86f6-cba16d81474d",
+		"name": "Astha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18373179"
+	},
+	"item": [
+		{
+			"name": "Create Booking Slot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"interviewDate\": \"2023-12-31\",\r\n    \"startTime\": \"13:30:00\",\r\n    \"endTime\": \"14:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8000/api/v1/booking-svc/booking-slots"
+			},
+			"response": []
+		},
+		{
+			"name": "Slot Booking",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Slots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/booking-svc/slots?pageNo=0&pageSize=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"booking-svc",
+						"slots"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Booking",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8000/api/v1/booking-svc/slots/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Candidate",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Rashed\",\r\n    \"email\": \"rashed@gmail.com\",\r\n    \"phoneNo\": \"+8801821152983\",\r\n    \"address\": \"Chittagong, Bangladesh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8000/api/v1/booking-svc/candidates"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Booking",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"candidateId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8000/api/v1/booking-svc/slots/1"
+			},
+			"response": []
+		}
+	]
+}
