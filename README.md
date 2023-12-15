@@ -1,3 +1,6 @@
 # Steps to Run 
-1. After cloning the repository run mvn clean install
-2. 
+1. After cloning the repository run
+  ```bash
+   mvn clean install
+  ```
+3. 
