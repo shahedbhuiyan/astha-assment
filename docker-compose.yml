@@ -1,0 +1,58 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: booking_db
+      POSTGRES_SCHEMA: public
+      POSTGRES_USER: dev@test
+      POSTGRES_PASSWORD: password@test
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - astha-backend
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 3s
+  admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev@test.com
+      PGADMIN_DEFAULT_PASSWORD: password@test
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - astha-backend
+    ports:
+      - "8881:80"
+    depends_on:
+      - db
+  astha-service:
+    depends_on:
+      - db
+    build:
+      context: .
+    image: astha-service:v1
+    container_name: astha-assessment-app
+    ports:
+      - 0.0.0.0:8000:8000
+    environment:
+      ACTIVE_PROFILE: dev
+    volumes:
+      - ./data/astha:/tmp
+    networks:
+      - astha-backend
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+ 
+networks:
+  astha-backend:
+    driver: bridge

@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+log:
+  dir: booking-svc
+
+info:
+  app:
+    name: Booking Service
+    description: This service is responsible for booking related functionality.
+    version: 1.0
+
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  application:
+    name: booking-service
+  lifecycle:
+    timeout-per-shutdown-phase: "90s"
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    database-platform: postgres
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: always
+      continue-on-error: true

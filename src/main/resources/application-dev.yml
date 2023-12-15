@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    #url: jdbc:postgresql://172.16.229.217:5432/wallet_db?currentSchema=booking_svc
+    #username: bswallet
+    #password: wallet@123
+    url: jdbc:postgresql://db:5432/booking_db?currentSchema=public
+    username: dev@test
+    password: password@test
+    hikari:
+      maximum-pool-size: 9
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+logging:
+  config: classpath:logger/logback-dev.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, metrics"
+  endpoint:
+    health:
+      show-details: always

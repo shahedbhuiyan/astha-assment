@@ -1,0 +1,21 @@
+server:
+  port: 7000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://booking_prod_db_host:5432/booking_prod_db?currentSchema=booking_svc
+    username: astha
+    password: astha@123
+    #url: jdbc:postgresql://db:5432/poc_db?currentSchema=public
+    #username: postgres
+    #password: postgres
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+logging:
+  config: classpath:logger/logback-prod.xml
